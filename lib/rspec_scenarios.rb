@@ -1,3 +1,5 @@
+require 'spec'
+
 module Spec
   module Scenarios
     def load(group_name, scenario_name, instance=nil)
@@ -14,37 +16,37 @@ module Spec
       klass
     end
     module_function :load
-  end
 
-  module ArrayMethods
-    def save!()
-      each{ |i| i.save! }
-      if size == 1
-        self[0]
-      else
-        self
+    module ArrayMethods
+      def save!()
+        each{ |i| i.save! }
+        if size == 1
+          self[0]
+        else
+          self
+        end
       end
+
+      def spec_save!()
+        each{ |i| i.spec_save! }
+        if size == 1
+          self[0]
+        else
+          self
+        end
+      end
+      
+      alias_method :save, :save!
+      alias_method :spec_save, :spec_save!
     end
 
-    def spec_save!()
-      each{ |i| i.spec_save! }
-      if size == 1
-        self[0]
-      else
-        self
+    module ExampleMethods
+      # New method to load fixtures and create locally-bound instance variables
+      def load_scenario(group_name, *scenario_names)        
+        scenario_names.each { |n| 
+          Scenarios::load(group_name, n, self) 
+        }
       end
-    end
-
-    alias_method :save, :save!
-    alias_method :spec_save, :spec_save!
-  end
-
-  module ExampleMethods
-    # New method to load fixtures and create locally-bound instance variables
-    def load_scenario(group_name, *scenario_names)        
-      scenario_names.each { |n| 
-        Scenarios::load(group_name, n, self) 
-      }
     end
   end
 end

@@ -15,8 +15,8 @@ into instance variables of the example
  # ./spec/scenarios/foo_scenarios.rb
  class FooScenarios
    def simple_foo
+     # create some model instances
      @foo = "Hi"
-     ...create some model instances...
    end
 end
 
