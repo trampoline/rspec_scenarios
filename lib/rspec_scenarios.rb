@@ -13,6 +13,7 @@ module Spec
       end
       klass
     end
+    module_function :load
   end
 
   module ArrayMethods
@@ -47,14 +48,17 @@ module Spec
     end
   end
 end
-end
 
 module Spec
   module Example
-    module ExampleMethods
+    module ExampleGroupMethods
       include Spec::Scenarios::ExampleMethods
     end
   end
+end
+
+class Test::Unit::TestCase
+  include Spec::Scenarios::ExampleMethods
 end
 
 class Array
