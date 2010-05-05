@@ -8,7 +8,7 @@ begin
     gem.summary = %Q{simple test scenario loader for rspec}
     gem.description = %Q{loads test scenarios and makes them available as instance variables to spec methods}
     gem.email = "mccraigmccraig@googlemail.com"
-    gem.homepage = "http://github.com/mccraigmccraig/rspec_scenarios"
+    gem.homepage = "http://github.com/trampoline/rspec_scenarios"
     gem.authors = ["mccraig mccraig of the clan mccraig"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings

@@ -1,6 +1,28 @@
 = rspec_scenarios
 
-Description goes here.
+adds a load_scenario method to rspec examples, which loads a named scenario
+into instance variables of the example
+
+ describe "Foo" do
+   before(:each) do
+     load_scenario :foo_scenarios, :simple_foo
+   end
+   it "should have a foo instance variable" do
+     @foo.should == "Hi"
+   end   
+ end
+
+ # ./spec/scenarios/foo_scenarios.rb
+ class FooScenarios
+   def simple_foo
+     @foo = "Hi"
+     ...create some model instances...
+   end
+end
+
+== Install
+
+ gem install rspec_scenarios
 
 == Note on Patches/Pull Requests
  
@@ -14,4 +36,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 mccraig mccraig of the clan mccraig. See LICENSE for details.
+Copyright (c) 2010 Trampoline Systems Ltd. See LICENSE for details.
