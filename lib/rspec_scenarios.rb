@@ -1,4 +1,5 @@
 require 'spec'
+require 'spec/interop/test'
 
 module Spec
   module Scenarios
